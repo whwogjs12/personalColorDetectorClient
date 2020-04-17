@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PersonalColorDetectorApp</string>
+    <string name="skip">건너뛰기</string>
+    <string name="previous">이전</string>
+    <string name="next">다음</string>
+    <string name="cameraCall">사진 찍기</string>
+    <string name="imageCall">사진 가져오기</string>
+    <string name="personalColorIs">퍼스널 컬러란?</string>
+    <string name="doNotSeeFromNext">다음부터 생략</string>
+    <string name="result">결과보기</string>
+    <string name="exit">종료</string>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/cameraCallButton"
+            android:text="@string/cameraCall"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/round"/>
+
+        <Button
+            android:id="@+id/imageCallButton"
+            android:text="@string/imageCall"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/round"/>
+
+        <Button
+            android:id="@+id/viewDescription"
+            android:text="@string/personalColorIs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/round"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/loadImageWindow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="11"
+        />
+
+    <Button
+        android:id="@+id/resultButton"
+        android:text="@string/result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/round"
+        android:visibility="gone"/>
+</LinearLayout>
