@@ -45,6 +45,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this,"이미지를 입력하지 않았거나 문제가 발생하였습니다.",Toast.LENGTH_SHORT).show();
             finish();
         }
+        else if(result == -1)
+        {
+            Toast.makeText(this,"사진에서 얼굴을 식별할 수 없거나 얼굴이 너무 작습니다.",Toast.LENGTH_SHORT).show();
+            finish();
+        }
         else if(result == -3)
         {
             Toast.makeText(this,"사진에서 얼굴을 식별할 수 없습니다.",Toast.LENGTH_SHORT).show();
@@ -53,6 +58,11 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         else if(result == -2)
         {
             Toast.makeText(this,"사진에서 식별된 얼굴이 너무 많습니다.",Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else if(result == -4)
+        {
+            Toast.makeText(this,"통신 문제가 발생하였습니다. 같은 사진으로 문제가 계속 발생한다면 다른 사진으로 다시 시도해주십시오.",Toast.LENGTH_SHORT).show();
             finish();
         }
     }

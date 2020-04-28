@@ -5,10 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +43,7 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         cameraCallButton.setOnClickListener(this);
         imageCallButton.setOnClickListener(this);
         resultButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -65,9 +68,23 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
                 ImageView imageView = findViewById(R.id.loadImageWindow);
                 BitmapDrawable bd = (BitmapDrawable) imageView.getDrawable();
                 Bitmap image = bd.getBitmap();
-                SocketThread socket = new SocketThread(getLocalIpAddress(),image);
-                socket.setContext(this);
-                socket.start();
+                float width = image.getWidth();
+                float height = image.getHeight();
+                if(height > 150)
+                {
+                    float percente = (float)(height / 100);
+                    float scale = (float)(150 / percente);
+                    width *= (scale / 100);
+                    height *= (scale / 100);
+                }
+                image = Bitmap.createScaledBitmap(image, (int) width, (int) height, true);
+                //SocketThread socket = new SocketThread(getLocalIpAddress(),image);
+                //socket.setContext(this);
+                Intent setProgress = new Intent(this, ProgressActivity.class);
+                setProgress.putExtra("local", getLocalIpAddress());
+                setProgress.putExtra("image", image);
+                startActivity(setProgress);
+                //socket.start();
                 break;
         }
 

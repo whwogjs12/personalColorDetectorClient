@@ -17,7 +17,7 @@ public class SocketThread extends Thread
 {
 
     int port = 4799;
-    String ip =  "61.105.233.37";
+    String ip =  "61.105.154.7";
     String host = null;
     Bitmap image  = null;
     Context context = null;
@@ -37,6 +37,7 @@ public class SocketThread extends Thread
                 DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
                 byte[] imageSize = String.valueOf(imageArray.length).getBytes();
                 dos.write(imageSize,0,imageSize.length);
+                Log.d("바이트",String.valueOf(String.valueOf(imageArray.length).getBytes()));
                 dos.flush();
                 dos.write(imageArray,0,imageArray.length);
                 dos.flush();
@@ -54,8 +55,12 @@ public class SocketThread extends Thread
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(context,"서버에 문제가 발생하였습니다.",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"서버에 문제가 발생하였습니다.",Toast.LENGTH_SHORT).show();
             return;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
         }
 
     }

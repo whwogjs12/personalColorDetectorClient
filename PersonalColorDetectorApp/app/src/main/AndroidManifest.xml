@@ -25,6 +25,7 @@
         <activity android:name=".RunningActivity"/>
         <activity android:name=".PermissionsActivity"/>
         <activity android:name=".ResultActivity"/>
+        <activity android:name=".ProgressActivity" android:theme="@android:style/Theme.Dialog"/>
     </application>
 
 </manifest>
